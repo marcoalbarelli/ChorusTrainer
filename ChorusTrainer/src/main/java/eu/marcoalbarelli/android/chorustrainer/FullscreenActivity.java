@@ -16,15 +16,19 @@
 
 package eu.marcoalbarelli.android.chorustrainer;
 
-import eu.marcoalbarelli.android.chorustrainer.util.SystemUiHider;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.SeekBar;
+
+import eu.marcoalbarelli.android.chorustrainer.util.SystemUiHider;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -60,6 +64,12 @@ public class FullscreenActivity extends Activity {
      * The instance of the {@link SystemUiHider} for this activity.
      */
     private SystemUiHider mSystemUiHider;
+
+    Thread t;
+    int sr = 44100;
+    boolean isRunning = true;
+    SeekBar fSlider;
+    double sliderval;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +138,91 @@ public class FullscreenActivity extends Activity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+
+
+        // point the slider to thwe GUI widget
+        fSlider = (SeekBar) findViewById(R.id.frequency);
+
+        // create a listener for the slider bar;
+        SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+            public void onStopTrackingTouch(SeekBar seekBar) { }
+            public void onStartTrackingTouch(SeekBar seekBar) { }
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress,
+                                          boolean fromUser) {
+                if(fromUser) sliderval = progress / (double)seekBar.getMax();
+            }
+        };
+
+        // set the listener on the slider
+        fSlider.setOnSeekBarChangeListener(listener);
+
+        //Istanziamo il synth
+        t  = new Thread(){
+            @Override
+            public void run() {
+                setPriority(Thread.MAX_PRIORITY);
+                int buffsize = AudioTrack.getMinBufferSize(sr, AudioFormat.CHANNEL_OUT_MONO,
+                        AudioFormat.ENCODING_PCM_16BIT);
+                // create an audiotrack object
+                AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, sr,
+                        AudioFormat.CHANNEL_OUT_MONO,
+                        AudioFormat.ENCODING_PCM_16BIT,
+                        buffsize,
+                        AudioTrack.MODE_STREAM);
+                AudioTrack audioTrack2 = new AudioTrack(AudioManager.STREAM_MUSIC, sr,
+                        AudioFormat.CHANNEL_OUT_MONO,
+                        AudioFormat.ENCODING_PCM_16BIT,
+                        buffsize,
+                        AudioTrack.MODE_STREAM);
+                short samples[] = new short[buffsize];
+                short samples2[] = new short[buffsize];
+                int amp = 10000;
+                double twopi = 8.*Math.atan(1.);
+                double fr = 440.f;
+                double fr2 = 440.f;
+                double ph = 0.0;
+                double ph2 = 0.0;
+                // start audio
+                audioTrack.play();
+                audioTrack2.play();
+
+                // synthesis loop
+                while(isRunning){
+
+                    fr =  440 + 440*sliderval;
+                    fr2 =  240 +340*sliderval;
+
+                    for(int i=0; i < buffsize; i++){
+                        samples[i] = (short) (amp*Math.sin(ph));
+                        samples2[i] = (short) (amp*Math.sin(ph2));
+                        ph += twopi*fr/sr;
+                        ph2 += twopi*fr2/sr;
+                    }
+                    audioTrack.write(samples, 0, buffsize);
+                    audioTrack2.write(samples2, 0, buffsize);
+                }
+                audioTrack.stop();
+                audioTrack.release();
+                audioTrack2.stop();
+                audioTrack2.release();
+            }
+        };
+        t.start();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isRunning = false;
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        t = null;
     }
 
     @Override

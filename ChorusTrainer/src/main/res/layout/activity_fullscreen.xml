@@ -48,7 +48,12 @@
             android:background="@color/black_overlay"
             android:orientation="horizontal"
             tools:ignore="UselessParent">
+            <SeekBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
 
+                    android:id="@+id/frequency"
+                    android:layout_gravity="right|top"/>
             <Button android:id="@+id/dummy_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
@@ -58,5 +63,7 @@
 
         </LinearLayout>
     </FrameLayout>
+
+
 
 </FrameLayout>
