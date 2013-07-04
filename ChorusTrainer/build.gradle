@@ -9,7 +9,7 @@ buildscript {
 apply plugin: 'android'
 
 dependencies {
-    compile files('libs/android-support-v4.jar')
+    compile files('libs/android-support-v4.jar','libs/android-midi-libv3-1-42.jar')
 }
 
 android {

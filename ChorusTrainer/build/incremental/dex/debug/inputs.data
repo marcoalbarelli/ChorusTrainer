@@ -1,0 +1,27 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1372940266000 2382 4d191c33660b7904e4a47f2893d58d35855cb79d /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/util/SystemUiHiderHoneycomb.class
+1372940266000 2221 fd44d1034750b5ebeaa51d2fa1ad3c5eecae46e1 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/util/SystemUiHider.class
+1372940266000 402 b78b8bcc324472397e32e93eaab5dfbd157cadc7 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/Constants.class
+1372940266000 339 38d56820e7284e14bf0f4745fb2f2436cc37d1ab /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/util/SystemUiHider$OnVisibilityChangeListener.class
+1372940266000 2209 f8abfd2b6c0d72c4a6b698e0e7c9f6812fcf1d0b /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/util/SystemUiHiderHoneycomb$1.class
+1372940266000 631 fd13b69fa50c9771d94732aa1f00f8f331b5ea2d /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$id.class
+1372940266000 2097 f8b56926abf6cb987e3e3ebe154495d98d248754 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity$1.class
+1372940266000 505 32da160d5ada61118cecff8470d231bd0980535b /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$attr.class
+1372940266000 982 284b82b10366cb57e0fe65852a5fc48de7b00b2e /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity$4.class
+1372940266000 583 042d3badba34ba2343b104eb786fc4e8e09c093e /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$string.class
+1372940266000 387 b859a712159f198c5920b2ec37b57f65dbf0b66a /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/BuildConfig.class
+1372940266000 653 929898c0d239bf10024e8ba249db12fb77ee2895 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$style.class
+1372940266000 472 7505428a7809ef94976f0e68e0c7566ca3cffc33 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$layout.class
+1372940266000 1055 205d3f2670611f27045f405952f5841f1729def2 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity$3.class
+1372940266000 1157 bb09e1b9b9c738ac2de97c09bfcd26e576b6c3cf /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity$2.class
+1372748496000 484258 bd6479f5dd592790607e0504e66e0f31c2b4d308 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/libs/android-support-v4.jar
+1372940266000 463 5df1d06e6a873273827a858e12e1c718bdcbac08 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$color.class
+1372940266000 1564 75c9a42beaced43e4b5351dcf507f26f709e79c2 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/util/SystemUiHiderBase.class
+1372940266000 893 0ee9516c82df0479dbc802c7e131e8ee4d09cdf6 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R.class
+1372940266000 723 d959689f523face9066b2f34863acc566e24c314 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/util/SystemUiHider$1.class
+1372940266000 5897 6f7349483039101fb5e9659ed20363414b5c7982 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity.class
+1372940266000 470 d60b7275ba54d694c54b968ddd55bc606c385241 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$drawable.class
+1372748496000 92303 eceb73fc81d24ca0ba126935c23d08cce97ccff1 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/libs/android-midi-libv3-1-42.jar
+1372940266000 693 869e096aa23595918d57e91ba9c4b4d5c5b6f0a5 /home/marco/Android Studio Projects/ChorusTrainer/ChorusTrainer/build/classes/debug/eu/marcoalbarelli/android/chorustrainer/R$styleable.class

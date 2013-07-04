@@ -16,15 +16,26 @@
 
 package eu.marcoalbarelli.android.chorustrainer;
 
-import eu.marcoalbarelli.android.chorustrainer.util.SystemUiHider;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
+
+import com.leff.midi.MidiFile;
+import com.leff.midi.MidiTrack;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import eu.marcoalbarelli.android.chorustrainer.util.SystemUiHider;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -60,6 +71,8 @@ public class FullscreenActivity extends Activity {
      * The instance of the {@link SystemUiHider} for this activity.
      */
     private SystemUiHider mSystemUiHider;
+
+    private final static String TAG  = FullscreenActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,5 +184,49 @@ public class FullscreenActivity extends Activity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    public void isClick(View v){
+        switch(v.getId()){
+            case R.id.main_choose_file:
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("file/*");
+                startActivityForResult(intent, Constants.MAIN_FINDFILE_REQUEST_CODE);
+                break;
+            default:
+                Log.d(TAG, "unhandled click event");
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode){
+            case Constants.MAIN_FINDFILE_REQUEST_CODE:
+                File file = new File(data.getData().getEncodedPath());
+                TextView t = (TextView) findViewById(R.id.main_filename_display);
+                MidiFile midi = null;
+                try {
+                    midi = new MidiFile(file);
+                    long length = midi.getLengthInTicks();
+                    ArrayList<MidiTrack> tracks = midi.getTracks();
+                    Iterator<MidiTrack> it = tracks.iterator();
+                    while(it.hasNext()){
+                        MidiTrack mt = it.next();
+                        mt.getEvents();
+                    }
+
+                    int resolution = midi.getResolution();
+
+                } catch(IOException e) {
+                    Log.e(TAG, e.getStackTrace().toString());
+
+                }
+                t.setText(data.getData().getEncodedPath());
+
+
+
+                break;
+        }
     }
 }
