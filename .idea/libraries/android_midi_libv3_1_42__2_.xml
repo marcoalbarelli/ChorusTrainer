@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="android-midi-libv3-1-42 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ChorusTrainer/libs/android-midi-libv3-1-42.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/ChorusTrainer/libs/android-midi-libv3-1-42.jar!/" />
+    </SOURCES>
+  </library>
+</component>

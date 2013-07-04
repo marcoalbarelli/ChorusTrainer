@@ -19,21 +19,16 @@ package eu.marcoalbarelli.android.chorustrainer;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-
-import com.leff.midi.MidiFile;
-import com.leff.midi.MidiTrack;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import eu.marcoalbarelli.android.chorustrainer.util.SystemUiHider;
 
@@ -73,6 +68,8 @@ public class FullscreenActivity extends Activity {
     private SystemUiHider mSystemUiHider;
 
     private final static String TAG  = FullscreenActivity.class.getSimpleName();
+
+    private static MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,6 +190,17 @@ public class FullscreenActivity extends Activity {
                 intent.setType("file/*");
                 startActivityForResult(intent, Constants.MAIN_FINDFILE_REQUEST_CODE);
                 break;
+            case R.id.dummy_button:
+                if(mp!= null){
+                    if(mp.isPlaying()){
+                        mp.pause();
+
+                    } else {
+//                        mp.reset();
+                        mp.start();
+                    }
+                }
+                break;
             default:
                 Log.d(TAG, "unhandled click event");
         }
@@ -204,6 +212,15 @@ public class FullscreenActivity extends Activity {
         switch(requestCode){
             case Constants.MAIN_FINDFILE_REQUEST_CODE:
                 File file = new File(data.getData().getEncodedPath());
+
+                if(mp!=null){
+                mp.stop();
+                mp.release();
+                mp = null;
+                }
+                mp = MediaPlayer.create(this,Uri.fromFile(file));
+
+                /*
                 TextView t = (TextView) findViewById(R.id.main_filename_display);
                 MidiFile midi = null;
                 try {
@@ -224,8 +241,40 @@ public class FullscreenActivity extends Activity {
                 }
                 t.setText(data.getData().getEncodedPath());
 
+                MediaPlayer mp = new MediaPlayer();
+                mp.
 
 
+                // 2. Create a MidiProcessor
+                MidiProcessor processor = new MidiProcessor(midi);
+
+                // 3. Register listeners for the events you're interested in
+
+                ChorusTrainerEventPrinter ep = new ChorusTrainerEventPrinter(
+                //        "Individual Listener"
+                );
+                processor.registerEventListener(ep, Tempo.class);
+                processor.registerEventListener(ep, NoteOn.class);
+
+                // or listen for all events:
+                ChorusTrainerEventPrinter ep2 = new ChorusTrainerEventPrinter(
+                //        "Listener For All"
+                );
+                processor.registerEventListener(ep2, MidiEvent.class);
+
+                // 4. Start the processor
+                processor.start();
+
+                // Listeners will be triggered in real time with the MIDI events
+                // And you can pause/resume with stop() and start()
+                try {
+                    Thread.sleep(10 * 1000);
+                    processor.stop();
+
+                    Thread.sleep(10 * 1000);
+                    processor.start();
+                } catch(Exception e) {}
+                */
                 break;
         }
     }
