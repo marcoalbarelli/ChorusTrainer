@@ -9,4 +9,10 @@ public class Constants {
      * Return codes for intents
      */
     public final static int MAIN_FINDFILE_REQUEST_CODE = 100;
+
+
+    /**
+     * Tmp File  Paths
+     */
+    public final static String OUTPUT_TMP_FILE_NAME = "chorustrainer_tmpmidi";
 }
