@@ -38,16 +38,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13d6663b-7278-4b5d-bcd2-fad56d79ad6b" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/midi/PartRenderer.java" afterPath="$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/midi/MidiManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/ChorusTrainer/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer/ChorusTrainer-ChorusTrainer.iml" afterPath="$PROJECT_DIR$/ChorusTrainer/ChorusTrainer-ChorusTrainer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer.iml" afterPath="$PROJECT_DIR$/ChorusTrainer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity.java" afterPath="$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer/build/source/r/debug/eu/marcoalbarelli/android/chorustrainer/R.java" afterPath="$PROJECT_DIR$/ChorusTrainer/build/source/r/debug/eu/marcoalbarelli/android/chorustrainer/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer/build/res/all/debug/layout/activity_fullscreen.xml" afterPath="$PROJECT_DIR$/ChorusTrainer/build/res/all/debug/layout/activity_fullscreen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChorusTrainer/src/main/res/layout/activity_fullscreen.xml" afterPath="$PROJECT_DIR$/ChorusTrainer/src/main/res/layout/activity_fullscreen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ChorusTrainer.iws" />
@@ -148,10 +138,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FullscreenActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FullscreenActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="245" column="44" selection-start="9031" selection-end="9031" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3750">
+            <state line="245" column="44" selection-start="9031" selection-end="9031" vertical-scroll-proportion="2.6804123" vertical-offset="1305" max-vertical-offset="3750">
               <folding />
             </state>
           </provider>
@@ -202,10 +192,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChorusTrainer/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.97938144" vertical-offset="0" max-vertical-offset="765">
+            <state line="38" column="0" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -765,15 +755,19 @@
       <created>1372960267491</created>
       <updated>1372960267491</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Abbozzato il sistema di manipolazione del file midi&#10;">
+      <created>1373473764816</created>
+      <updated>1373473764816</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1363" y="-15" width="1930" height="1063" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32855567" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32855567" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.44873208" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -842,7 +836,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Abbozzati i metodi per fare l'edit del file midi per il successivo  playback" />
+    <option name="LAST_COMMIT_MESSAGE" value="Abbozzato il sistema di manipolazione del file midi&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -858,6 +852,7 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Implementato un abbozzo di mediaplayer per i file midi" />
     <MESSAGE value="Abbozzati i metodi per fare l'edit del file midi per il successivo  playback" />
+    <MESSAGE value="Abbozzato il sistema di manipolazione del file midi&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -958,16 +953,16 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity.java">
+    <entry file="file://$PROJECT_DIR$/ChorusTrainer/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="44" selection-start="9031" selection-end="9031" vertical-scroll-proportion="0.0" vertical-offset="2544" max-vertical-offset="3750">
+        <state line="38" column="0" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChorusTrainer/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/ChorusTrainer/src/main/java/eu/marcoalbarelli/android/chorustrainer/FullscreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.97938144" vertical-offset="0" max-vertical-offset="765">
+        <state line="245" column="44" selection-start="9031" selection-end="9031" vertical-scroll-proportion="2.6804123" vertical-offset="1305" max-vertical-offset="3750">
           <folding />
         </state>
       </provider>
