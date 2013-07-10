@@ -27,9 +27,24 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.leff.midi.MidiFile;
+import com.leff.midi.MidiTrack;
+import com.leff.midi.event.MidiEvent;
+import com.leff.midi.event.NoteOff;
+import com.leff.midi.event.NoteOn;
+import com.leff.midi.event.meta.TrackName;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.TreeSet;
 
+import eu.marcoalbarelli.android.chorustrainer.midi.MidiManager;
 import eu.marcoalbarelli.android.chorustrainer.util.SystemUiHider;
 
 /**
@@ -211,70 +226,72 @@ public class FullscreenActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         switch(requestCode){
             case Constants.MAIN_FINDFILE_REQUEST_CODE:
-                File file = new File(data.getData().getEncodedPath());
 
-                if(mp!=null){
-                mp.stop();
-                mp.release();
-                mp = null;
-                }
-                mp = MediaPlayer.create(this,Uri.fromFile(file));
+                String path =data.getData().getEncodedPath();
+                if(path!=null){
+                    File file = new File(path);
 
-                /*
-                TextView t = (TextView) findViewById(R.id.main_filename_display);
-                MidiFile midi = null;
-                try {
-                    midi = new MidiFile(file);
-                    long length = midi.getLengthInTicks();
-                    ArrayList<MidiTrack> tracks = midi.getTracks();
-                    Iterator<MidiTrack> it = tracks.iterator();
-                    while(it.hasNext()){
-                        MidiTrack mt = it.next();
-                        mt.getEvents();
+                    TextView t = (TextView) findViewById(R.id.main_filename_display);
+                    MidiFile midi = null;
+                    try {
+
+                        LinearLayout parent = (LinearLayout) findViewById(R.id.tracks_buttons);
+                        parent.removeAllViews();
+
+                        midi = new MidiFile(file);
+                        long length = midi.getLengthInTicks();
+                        ArrayList<MidiTrack> tracks = midi.getTracks();
+                        Iterator<MidiTrack> it = tracks.iterator();
+
+                        while(it.hasNext()){
+
+                            MidiTrack mt = it.next();
+                            TreeSet<MidiEvent> events = mt.getEvents();
+                            String trackName = "Track";
+                            for (MidiEvent ev : events){
+                                if(!ev.getClass().equals(NoteOn.class) && !ev.getClass().equals(NoteOff.class)){
+                                    Log.d(TAG,ev.getClass().getSimpleName());
+                                }
+                                if(ev.getClass().equals(TrackName.class)){
+                                    trackName = ((TrackName) ev).getTrackName();
+                                    Button trackToggleButton = new Button(this);
+                                    trackToggleButton.setText(trackName);
+                                    trackToggleButton.setTag(trackName);
+                                    trackToggleButton.setClickable(true);
+
+                                    parent.addView(trackToggleButton);
+                                }
+
+                            }
+
+
+
+
+                        }
+
+                        int resolution = midi.getResolution();
+                        t.setText(data.getData().getEncodedPath()+" lunghezza: "+midi.getLengthInTicks()+" resultion "+resolution);
+
+                    } catch(IOException e) {
+                        Log.e(TAG, e.getStackTrace().toString());
+
                     }
 
-                    int resolution = midi.getResolution();
 
-                } catch(IOException e) {
-                    Log.e(TAG, e.getStackTrace().toString());
+                    if(mp!=null){
+                        mp.stop();
+                        mp.release();
+                        mp = null;
+                    }
+                    MidiManager mm = new MidiManager(this,midi);
+                    mm.isolateTrack(1);
+                    mm.isolateTrack(2);
+                    mm.isolateTrack(3);
+                    mm.reduceTempoInFileByFactor(2f);
 
+
+                    mp = MediaPlayer.create(this,Uri.fromFile(mm.getModifiedFile()));
                 }
-                t.setText(data.getData().getEncodedPath());
-
-                MediaPlayer mp = new MediaPlayer();
-                mp.
-
-
-                // 2. Create a MidiProcessor
-                MidiProcessor processor = new MidiProcessor(midi);
-
-                // 3. Register listeners for the events you're interested in
-
-                ChorusTrainerEventPrinter ep = new ChorusTrainerEventPrinter(
-                //        "Individual Listener"
-                );
-                processor.registerEventListener(ep, Tempo.class);
-                processor.registerEventListener(ep, NoteOn.class);
-
-                // or listen for all events:
-                ChorusTrainerEventPrinter ep2 = new ChorusTrainerEventPrinter(
-                //        "Listener For All"
-                );
-                processor.registerEventListener(ep2, MidiEvent.class);
-
-                // 4. Start the processor
-                processor.start();
-
-                // Listeners will be triggered in real time with the MIDI events
-                // And you can pause/resume with stop() and start()
-                try {
-                    Thread.sleep(10 * 1000);
-                    processor.stop();
-
-                    Thread.sleep(10 * 1000);
-                    processor.start();
-                } catch(Exception e) {}
-                */
                 break;
         }
     }

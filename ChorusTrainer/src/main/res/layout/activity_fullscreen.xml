@@ -24,16 +24,34 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:keepScreenOn="true"
-        android:textColor="#33b5e5"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:text="@string/dummy_content" />
 
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:fitsSystemWindows="true">
+        <TextView android:id="@+id/fullscreen_content"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:keepScreenOn="true"
+                  android:textColor="#33b5e5"
+                  android:textStyle="bold"
+                  android:textSize="50sp"
+                  android:gravity="center"
+                  android:text="@string/dummy_content" />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_filename_placeholder"
+                android:id="@+id/main_filename_display"
+                android:layout_gravity="center"/>
+
+        <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar"
+                android:layout_gravity="center"
+                android:scrollbarSize=""/>
+
+    </FrameLayout>
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
     <FrameLayout android:layout_width="match_parent"
@@ -43,36 +61,43 @@
         <LinearLayout android:id="@+id/fullscreen_content_controls"
             style="?buttonBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             tools:ignore="UselessParent">
 
             <Button android:id="@+id/dummy_button"
                 style="?buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:onClick="isClick"
                 android:text="@string/dummy_button" />
 
+            <LinearLayout
+                    android:id="@+id/tracks_buttons"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5">
+
+            </LinearLayout>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="Choose file"
+                    android:id="@+id/main_choose_file"
+                    android:onClick="isClick"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_weight="1"/>
+
+
         </LinearLayout>
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Choose file"
-                android:id="@+id/main_choose_file"
-                android:onClick="isClick"
-                android:layout_gravity="center_horizontal|top"/>
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_filename_placeholder"
-                android:id="@+id/main_filename_display"
-                android:layout_gravity="center"/>
+
     </FrameLayout>
 
 </FrameLayout>
